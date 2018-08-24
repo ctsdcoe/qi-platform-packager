@@ -1,0 +1,1 @@
+{ "_id" : { "$oid" : "5b2ab775e4b01ca50020ea6b" }, "_class" : "com.cognizant.qualitybot.insightvo.ProjectVo", "projectid" : "testproject", "projectDesc" : "testproject", "pocName" : "Demo", "pocEmail" : "demo@cognizant.com", "startDate" : "2018-06-20", "endDate" : "2018-10-31", "status" : true, "runid" : [ "1" ] }

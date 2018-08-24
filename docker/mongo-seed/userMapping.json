@@ -1,0 +1,1 @@
+{ "_id" : { "$oid" : "5b2ab775e4b01ca50020ea6c" }, "_class" : "com.cognizant.qualitybot.insightvo.ProjectUserMappingVO", "projectid" : "testproject", "isActive" : "true", "userIdList" : [ "demo" ] }

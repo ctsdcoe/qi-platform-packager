@@ -1,0 +1,65 @@
+version: '3'
+
+services:
+  mongodb:
+    image: ${QI_MONGODB}
+    restart: always
+    environment:
+      MONGODB_ADMIN_USER: mongoadmin
+      MONGODB_ADMIN_PASS: secret
+      MONGODB_APPLICATION_DATABASE: QualityInsightDB
+      MONGODB_APPLICATION_USER: qi-botuser
+      MONGODB_APPLICATION_PASS: bot123
+    ports:
+      - "27017:27017"
+
+  mongo-seed:
+    image: ${QI_MONGO_SEEDDATA}
+    depends_on:
+      - mongodb
+    links:
+      - mongodb
+
+  qi-sparkjob-server:
+     image: ${QI_SPARKJOB_SERVER}
+     restart: always
+     environment:
+       SPARK_HOME: /usr/local/spark-2.2.0-bin-hadoop2.7
+       PIDFILE: spark-jobserver.pid
+       MONGO_HOST: mongodb
+       MONGO_DB_NAME: QualityInsightDB
+       MONGO_PORT: 27017
+       QI_HOST: qi-dashboard
+       QI_PORT: 8080
+       QI_PREDICTIOM_MODEL_PATH: /usr/local/qimodels
+       SPARK_UNAME: spark
+       SPARK_PWD: password
+     ports:
+      - "8090:8090"
+
+  qi-dashboard:
+     image: ${QI_SERVER}
+     restart: always
+     ports:
+     - "8080:8080"
+     environment:
+       SPARK_HOST: qi-sparkjob-server
+       SPARK_PORT: 8090
+       SPARK_UNAME: spark
+       SPARK_PWD: password
+       MONGO_HOST: mongodb
+       MONGO_DB_NAME: QualityInsightDB
+       MONGO_PORT: 27017
+       QI_HOST: qi-dashboard
+       QI_PORT: 8080
+       QI_AppName: QualityBot1
+       DB_USERNAME: qi-botuser
+       DB_PASSWORD: bot123
+     depends_on:
+      - mongodb
+      - mongo-seed
+      - qi-sparkjob-server
+     links:
+      - mongodb
+      - mongo-seed
+      - qi-sparkjob-server
