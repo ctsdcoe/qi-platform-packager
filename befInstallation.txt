@@ -1,0 +1,4 @@
+Pre-requisites for Quality Insight Bots:
+* Mongo DB, version 3.2/3.4
+* Spark 2.2
+* Java JRE, 1.8
