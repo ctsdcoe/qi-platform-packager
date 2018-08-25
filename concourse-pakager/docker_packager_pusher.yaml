@@ -22,7 +22,7 @@ resources:
   source:
     username: ((docker-hub-username))
     password: ((docker-hub-password))
-    repository: ec2-34-212-9-250.us-west-2.compute.amazonaws.com:443/qi-sparkjob-server
+    repository: ec2-34-212-9-250.us-west-2.compute.amazonaws.com:443/mongo-seed
     insecure_registries: [ "ec2-34-212-9-250.us-west-2.compute.amazonaws.com:443" ]
 
 - name: qi-server-image
