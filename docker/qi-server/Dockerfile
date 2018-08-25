@@ -1,5 +1,5 @@
 FROM tomcat:8.0.20-jre8
 MAINTAINER Dharma "dharmendra.singh4@cognizant.com"
 RUN apt-get install -y curl
-RUN curl -uadmin:AP4gmeCaE21YNBpqadHAbH7ShLh -O "http://ec2-34-212-9-250.us-west-2.compute.amazonaws.com:8081/artifactory/generic-local/qi-latest/qi-platform/QualityBot1.war"  ~/QualityBot1.war
+RUN wget -user admin --password AP4gmeCaE21YNBpqadHAbH7ShLh -q "http://ec2-34-212-9-250.us-west-2.compute.amazonaws.com:8081/artifactory/generic-local/qi-latest/qi-platform/QualityBot1.war"  -O ~/QualityBot1.war
 COPY ~/QualityBot1.war /usr/local/tomcat/webapps/QualityBot1.war
