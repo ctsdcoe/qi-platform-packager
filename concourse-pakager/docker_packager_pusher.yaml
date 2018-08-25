@@ -1,0 +1,83 @@
+resources:
+- name: packaging-repo
+  type: git
+  source:
+    uri: ((git_url))
+    branch: ((git_branch))
+    private_key: ((github-private-key))
+
+# - name: slack
+#   type: slack-notification
+#   source:
+#     url: ((slack-webhook-url))
+#
+# resource_types:
+# - name: slack-notification
+#   type: docker-image
+#   source:
+#     repository: hub.docker.com/cfcommunity/slack-notification-resource
+
+- name: mongo-seed-image
+  type: docker-image
+  source:
+    username: ((docker-hub-username))
+    password: ((docker-hub-password))
+    repository: ec2-34-212-9-250.us-west-2.compute.amazonaws.com:443/qi-sparkjob-server
+    insecure_registries: [ "ec2-34-212-9-250.us-west-2.compute.amazonaws.com:443" ]
+
+- name: qi-server-image
+  type: docker-image
+  source:
+    username: ((docker-hub-username))
+    password: ((docker-hub-password))
+    repository: ec2-34-212-9-250.us-west-2.compute.amazonaws.com:443/qi-server
+    insecure_registries: [ "ec2-34-212-9-250.us-west-2.compute.amazonaws.com:443" ]
+
+- name: qi-sparkjob-server-image
+  type: docker-image
+  source:
+    username: ((docker-hub-username))
+    password: ((docker-hub-password))
+    repository: ec2-34-212-9-250.us-west-2.compute.amazonaws.com:443/qi-sparkjob-server
+    insecure_registries: [ "ec2-34-212-9-250.us-west-2.compute.amazonaws.com:443" ]
+
+
+jobs:
+- name: publish_mongo-seed_container
+  build_logs_to_retain: 20
+  plan:
+  - get: packaging-repo
+    trigger: true
+  - put: mongo-seed-image
+    params:
+      build: packaging-repo/docker/mongo-seed/
+    # on_failure:
+    #  put: slack
+    # params:
+    #   text: "Failed publish_mongo-seed_container!| Click for details.>"
+
+- name: publish_qi-server-container
+  build_logs_to_retain: 20
+  plan:
+  - get: packaging-repo
+    trigger: true
+  - put: qi-server-image
+    params:
+      build: packaging-repo/docker/qi-server/
+    # on_failure:
+    #  put: slack
+    # params:
+    #   text: "Failed publish_qi-server-container!| Click for details.>"
+
+- name: publish_spark_job_container
+  build_logs_to_retain: 20
+  plan:
+  - get: packaging-repo
+    trigger: true
+  - put: qi-sparkjob-server-image
+    params:
+      build: packaging-repo/docker/spark/
+    # on_failure:
+    #  put: slack
+    # params:
+    #   text: "Failed publish_spark_job_container!| Click for details.>"
