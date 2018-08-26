@@ -28,6 +28,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/docker/spark/server_start.sh">
+          <value>
+            <set />
+          </value>
+        </entry>
       </map>
     </option>
   </component>
