@@ -6,7 +6,7 @@
   Additionally check "https://docs.docker.com/compose/install/#install-compose" and 
   https://docs.docker.com/install/linux/docker-ce/ubuntu/
   
-  Below are sample instructions
+  Below are sample instructions 
  
  
         sudo yum install yum-utils

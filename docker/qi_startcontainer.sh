@@ -4,7 +4,7 @@ set -e
 ##### Constants --Testing section
 QI_MONGODB_IMAGE="alexpunct/mongo"
 QI_MONGO_SEEDDATA_IMAGE='ec2-34-212-9-250.us-west-2.compute.amazonaws.com:443/mongo-seed'
-QI_SPARKJOB_SERVER_IMAGE='spark-test123'
+QI_SPARKJOB_SERVER_IMAGE='ec2-34-212-9-250.us-west-2.compute.amazonaws.com:443/qi-sparkjob-server'
 QI_SERVER_IMAGE='ec2-34-212-9-250.us-west-2.compute.amazonaws.com:443/qi-server'
 
 
@@ -13,7 +13,7 @@ QI_SERVER_IMAGE='ec2-34-212-9-250.us-west-2.compute.amazonaws.com:443/qi-server'
 banner()
 {
   echo '========================================================================================================'
-  echo '************************************QI docker compose script v0.1***************************************'
+  echo '************************************QI docker compose script v1.0***************************************'
   echo '========================================================================================================'
 
 }
@@ -23,7 +23,6 @@ init()
   tag=$1
   if [ -z $tag ]; then
     echo "no tag info being passed latest tag being used for running the containers"
-    #TODO need to be changed to startdard format of mongo
     export QI_MONGODB=${QI_MONGODB_IMAGE}:3.4
     export QI_MONGO_SEEDDATA=${QI_MONGO_SEEDDATA_IMAGE}:latest
     export QI_SPARKJOB_SERVER=${QI_SPARKJOB_SERVER_IMAGE}:latest
