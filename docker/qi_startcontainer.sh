@@ -4,7 +4,7 @@ set -e
 ##### Constants --Testing section
 QI_MONGODB_IMAGE="alexpunct/mongo"
 QI_MONGO_SEEDDATA_IMAGE='ec2-34-212-9-250.us-west-2.compute.amazonaws.com:443/mongo-seed'
-QI_SPARKJOB_SERVER_IMAGE='ec2-34-212-9-250.us-west-2.compute.amazonaws.com:443/qi-sparkjob-server'
+QI_SPARKJOB_SERVER_IMAGE='spark-test123'
 QI_SERVER_IMAGE='ec2-34-212-9-250.us-west-2.compute.amazonaws.com:443/qi-server'
 
 
