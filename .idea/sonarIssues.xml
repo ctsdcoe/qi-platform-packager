@@ -28,12 +28,37 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/docker/qi_startcontainer.sh">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/docker/spark/Dockerfile">
           <value>
             <set />
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/docker/spark/server_start.sh">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../qi-platform-packager/concourse-pakager/docker_packager_pusher.yaml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../qi-platform-packager/concourse-pakager/docker_packager_pusher.yml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../qi-platform-packager/docker/qi-server/Dockerfile">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../qi-platform-packager/docker/spark/Dockerfile">
           <value>
             <set />
           </value>

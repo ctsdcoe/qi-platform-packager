@@ -26,8 +26,8 @@ init()
     #TODO need to be changed to startdard format of mongo
     export QI_MONGODB=${QI_MONGODB_IMAGE}:3.4
     export QI_MONGO_SEEDDATA=${QI_MONGO_SEEDDATA_IMAGE}:latest
-    export QI_SPARKJOB_SERVER=${QI_SPARKJOB_SERVER_IMAGE}:4.0.3
-    export QI_SERVER=${QI_SERVER_IMAGE}:4.0.3
+    export QI_SPARKJOB_SERVER=${QI_SPARKJOB_SERVER_IMAGE}:latest
+    export QI_SERVER=${QI_SERVER_IMAGE}:latest
   else
     echo "container tag $tag is being used for running qi containers"
     export QI_MONGODB=${QI_MONGODB_IMAGE}:${tag}
